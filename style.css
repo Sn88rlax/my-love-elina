@@ -1,0 +1,201 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+
+  /* базовый фон — нежно розовый */
+  background: #ffd6e8;
+
+  /* поверх него бегает белый градиент */
+  background-image: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.6) 0%,
+    rgba(255,255,255,0.0) 50%,
+    rgba(255,255,255,0.6) 100%
+  );
+
+  background-size: 200% 100%;
+  animation: shineFlow 12s linear infinite;
+
+  overflow-x: hidden;
+  color: #4a2c2a;
+}
+
+/* белая «волна», двигающаяся по розовому */
+@keyframes shineFlow {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.container {
+  text-align: center;
+  padding: 30px;
+  max-width: 700px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2em;
+  color: #d36fa0;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 60%;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #ffb6c1;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  background: #ff8fa3;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(255, 143, 163, 0.6);
+}
+
+#photo {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+#history .day {
+  background: #fff7fa;
+  border-left: 6px solid #ffb6c1;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  animation: slideUp 0.7s ease;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+@keyframes slideUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Плавающие сердечки */
+.hearts::before, .hearts::after {
+  content: "💖";
+  position: fixed;
+  font-size: 2rem;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.5;
+}
+
+.hearts::before {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.hearts::after {
+  left: 70%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  from {bottom: -50px; opacity: 0;}
+  50% {opacity: 1;}
+  to {bottom: 110%; opacity: 0;}
+}
+
+.error {
+  color: #ff4d6d;
+  font-size: 0.9em;
+  margin-top: 10px;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Заголовки */
+h1, h2 {
+  animation: glowPulseText 3s ease-in-out infinite;
+  text-shadow: 0 0 6px rgba(255, 182, 193, 0.6),
+               0 0 12px rgba(255, 182, 193, 0.4);
+}
+
+/* Элементы истории */
+#history li {
+  animation: fadeInUp 0.8s ease forwards, glowPulseBox 6s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+/* Анимация для свечения блоков */
+@keyframes glowPulseBox {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(255, 192, 203, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 182, 193, 0.7);
+  }
+}
+
+/* Анимация для текста */
+@keyframes glowPulseText {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(255, 182, 193, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 182, 193, 0.9);
+  }
+
+}
+
+.details {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff0f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+.details.hidden {
+  display: none;
+}
+
+.message-preview {
+  font-weight: bold;
+  color: #d36fa0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.message-preview:hover {
+  color: #ff4d6d;
+}
